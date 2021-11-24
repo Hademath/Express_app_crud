@@ -4,15 +4,19 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('week-6-task:server');
-var http = require('http');
+const app = require('../dist/app').default;
+const debug = require('debug')('week-6-task:server');
+const http = require('http');
+// const fs = require('fs');
+// const path = require('path')
+// const database = require('database')
+
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '2300');
 app.set('port', port);
 
 /**
@@ -25,7 +29,9 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+server.listen(port, ()=>{
+  console.log(`My server is running now on ${port}`);
+});
 server.on('error', onError);
 server.on('listening', onListening);
 
